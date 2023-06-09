@@ -22,32 +22,65 @@ const randomNumber = function(){
 
 const button = document.querySelector('button')
 const cell = document.querySelectorAll('#tabellone div')
+let arr =[]
 
-button.addEventListener('click', function(e){
-    randomNumber()
+const randomF = function(){
     let random = randomNumber()
-    // let arrNum = []
-    // for(let y=0; y<arrNum;y++){
-    //     if(arrNum[y] !== random){
-    //         arrNum.push(random)
-    //     }
-    //     console.log(arrNum[0])
-    // }
-    cell.forEach((p) =>{
-    if(Number(p.innerText) === random ){
-        p.classList.add('color')
-        }
-    }) 
-})
-
-const addCards = document.getElementById('newCards div')
-
-const generateCars = function (){ 
-    let arrCard = []
-    for(let i=0; i<24; i++){
-        let num = Math.floor(Math.random()*76)+1
-        const cardCell = document.createElement('div')
-        cardCell.innerText = num
-        addCards.appendChild(cardCell)
+    if(arr.includes(random)){
+        randomF()
+    }else{
+        arr.push(random)   
+        cell.forEach((p) =>{
+        if(Number(p.innerText) === random ){
+            p.classList.add('color')
+            }
+        })       
     }
 }
+
+button.addEventListener('click', randomF)
+
+const addCards = document.querySelector('section')
+const playerCard = document.getElementById('new-card')
+
+// const playerSelection = document.getElementById('player-card')
+// const value = playerSelection.value
+
+let arrCard = []
+
+const generateCard = function (){ 
+     for(let i=0; i<24; i++){
+        const cardCell = document.createElement('div')
+        const numCell = document.createElement('p')
+        cardCell.classList.add('card-cell')
+        cardCell.appendChild(numCell)
+     }
+     const divInSection = document.querySelectorAll('section div')
+     const newDiv = document.createElement('div')
+        divInSection.forEach((el)=>{
+        newDiv.appendChild(el)
+    })
+    newDiv.classList.add('new-card')
+ }
+
+
+ const blockDiv = function(){
+    const newNewDiv = document.querySelectorAll('section div')
+    newNewDiv.forEach((el)=>{
+        addCards.appendChild(el)
+    })
+}
+
+playerCard.addEventListener('click', function(e){
+    generateCard()
+    blockDiv()
+})
+
+
+
+
+
+
+
+
+

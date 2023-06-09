@@ -82,9 +82,53 @@ button{
     border-radius: 5px;
     background-color: dodgerblue;
     color: white;
+    margin: 0 30px;
 }
 
 .color{
     background-color: orange;
     color: white;
+}
+
+#button div{
+    display: inline-block;
+    width: 224px;
+    vertical-align: bottom;
+}
+
+#button div button{
+    height: 30px;
+    font-size: 0.8em;
+}
+
+label{
+    font-weight: 600;
+}
+
+input{
+    margin-top: 10px;
+    width: 180px;
+    margin-left: 35px;
+}
+
+.card-cell{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border: 2px solid;
+    margin: 2px;
+    background-color: white;
+    font-weight: 700;
+}
+
+section p{
+    margin-top: 12px;
+    display: inline-block;
+}
+
+.new-card{
+    width: 300px;
+    margin: 30px;
+    display: inline-block;
 }
