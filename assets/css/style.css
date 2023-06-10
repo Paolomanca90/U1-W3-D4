@@ -75,7 +75,7 @@ p{
 }
 
 button{
-    height: 50px;
+    height: 62px;
     width: 200px;
     font-size: 1.3em;
     font-weight: 600;
@@ -94,6 +94,7 @@ button{
     display: inline-block;
     width: 224px;
     vertical-align: bottom;
+    margin-right: 35px;
 }
 
 #button div button{

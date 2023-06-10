@@ -26,63 +26,62 @@ const randomNumber = function(){
 
 // genero le cartelle
 
-// numeri per le cartelle
 let arrCards = []
 
-const numInCard = function(){  
-    for(let i=0; i<24; i++){
-    const randomN = function(){
-        let random = randomNumber()
-        if(arrCards.includes(random)){
-            randomN()
-        }else{
-            arrCards.push(random)
-            }
-        }
-        randomN()
-    } 
-    return arrCards
-}
-
-
-// cartelle
 const addCards = document.querySelector('section')
 const newCard = document.getElementById('new-card')
 
 const generateCard = function (){ 
-    // for(let y=0; y<playerCard; y++){
+    let num = document.getElementById('player-card').value
+
+    // genero il numero di cartelle indicate dal giocatore
+
+    for(let y=0; y<num; y++){
      for(let i=0; i<24; i++){
         const numCell = document.createElement('p')
+        numCell.classList.add('default')
         addCards.appendChild(numCell)
      }
-    
-    }
 
-//  }
+    //  genero i 24 numeri random
 
-newCard.addEventListener('click', function(e){
-    generateCard()
-    let divInSection = document.querySelectorAll('section>p')
-    const newDiv = document.createElement('div')
-    
-    numInCard()
-    for(let i=0; i<24; i++){
+     for(let i=0; i<24; i++){
+        const randomN = function(){
+            let random = randomNumber()
+            if(arrCards.includes(random)){
+                randomN()
+            }else{
+                arrCards.push(random)
+                }
+            }
+            randomN()
+        }
+    // metto i numeri random nelle varie celle di ogni cartella
+     let divInSection = document.querySelectorAll('section>p')
+     for(let i=0; i<24; i++){
         divInSection[i].innerText = arrCards[i]
-    }
-    divInSection.forEach((el)=>{
+     }
+     const newDiv = document.createElement('div')
+     divInSection.forEach((el)=>{
         newDiv.appendChild(el)
     })
     addCards.appendChild(newDiv)
     newDiv.classList.add('new-card')
-    arrCards = []
+    arrCards = [] 
+    }
+ }
+
+newCard.addEventListener('click', function(e){
+    generateCard()
+    let num = document.getElementById('player-card')
+    num.value = '' 
 })
+
 
 // estraggo i numeri
 
 const button = document.querySelector('button')
 const cell = document.querySelectorAll('#tabellone div')
-const allP = document.querySelectorAll('section p')
-console.log(allP)
 
 let arr =[]
 
@@ -97,6 +96,7 @@ const randomF = function(){
             p.classList.add('color')
             }
         })
+        const allP = document.querySelectorAll('section p')
         allP.forEach((el)=>{
         if(Number(el.innerText) === random ){
             el.classList.add('color')
