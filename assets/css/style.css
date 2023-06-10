@@ -123,8 +123,19 @@ input{
 }
 
 section p{
-    margin-top: 12px;
     display: inline-block;
+    height: 28px;
+    width: 40px;
+    text-align: center;
+    border: 2px solid;
+    margin: 2px;
+    background-color: white;
+    font-weight: 700;
+    padding-top: 12px;
+}
+
+section{
+    text-align: center;
 }
 
 .new-card{
